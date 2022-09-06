@@ -1,0 +1,29 @@
+npx create-react-app client  ==> Create a client folder, with all file setup
+new terminal
+cd api 
+npm init "in api directory" will detup package.json
+Setup Project
+Dependencies:
+npm install express mongoose cors
+in api: npm i -D nodemon  //Defellment Dependencies
+//Nodemon allows us to run a server
+Add this to Package.json under script "start":"nodemon server.js"
+In Server.js add :
+mongoose.connect("mongodb://localhost:27017/TODO-MERN",{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>console.log("Connected to MongoDB")).catch(console.error);
+app.listen(5001, ()=>console.log("Server Started")); //Port and Callback function
+
+npm start to run server
+
+Next Step: Create a models folder in api. Create Model //Blueprint of DB structure
+
+User Rest Client Extension
+    Make requests.rest and put request to get data
+
+    Now react
+
+Delete from src 
+App.css,App.test.js,logo.svg,reportWebVi..,setupTest
+from index.js remove "reportWebVitals();" and reportVital import

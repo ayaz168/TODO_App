@@ -1,0 +1,32 @@
+GET http://localhost:3001/todo
+
+
+###
+GET http://localhost:3001/todo/getCompleted
+
+
+###
+GET http://localhost:3001/todo/getRemaining
+
+###
+GET http://localhost:3001/todo/getPriority/High
+
+
+###
+POST http://localhost:3001/todo/new
+Content-Type: application/json
+
+{
+    "heading":"My 5 Todo",
+    "text":"Not a high priority",
+    "priority":"High"
+}
+
+###
+DELETE http://localhost:3001/todo/delete/63175c467a4877ff447cb649
+
+###
+DELETE http://localhost:3001/todo/delete/63175cc3cb4643ab42fbce2a
+
+###
+PUT http://localhost:3001/todo/complete/63175fd5245c2d5f5772595d
