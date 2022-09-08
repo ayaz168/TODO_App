@@ -17,7 +17,7 @@ POST http://localhost:3001/todo/new
 Content-Type: application/json
 
 {
-    "heading":"My 5 Todo",
+    "heading":"My 6 Todo",
     "text":"Not a high priority",
     "priority":"High"
 }

@@ -25,21 +25,21 @@ app.get("/todo", async (req, res) => {
   //It should find all todos
   //return
   const todo = await Todo.find(); //await as it is async funtion
-  res.json(todo);
+  res.json({ msg: "Success", todo });
 });
 app.get("/todo/getCompleted", async (req, res) => {
   //Req to host 5001/todos
   //It should find all todos
   //return
   const todo = await Todo.find({ completeFlag: true }); //await as it is async funtion
-  res.json(todo);
+  res.json({ msg: "Success", todo });
 });
 app.get("/todo/getPriority/:prio", async (req, res) => {
   //Req to host 5001/todos
   //It should find all todos
   //return
   const todo = await Todo.find({ priority: req.params.prio }); //await as it is async funtion
-  res.json(todo);
+  res.json({ msg: "Success", todo });
 });
 
 app.get("/todo/getRemaining", async (req, res) => {
@@ -47,7 +47,7 @@ app.get("/todo/getRemaining", async (req, res) => {
   //It should find all todos
   //return
   const todo = await Todo.find({ completeFlag: false }); //await as it is async funtion
-  res.json(todo);
+  res.json({ msg: "Success", todo });
 });
 app.post("/todo/new", async (req, res) => {
   //Req to host 5001/todos
@@ -78,15 +78,16 @@ app.post("/todo/new", async (req, res) => {
 });
 
 app.delete("/todo/delete/:id", async (req, res) => {
-  const result = await Todo.findByIdAndDelete(req.params.id);
-  res.json({ msg: "Success", result });
+  const todo = await Todo.findByIdAndDelete(req.params.id);
+  res.json({ msg: "Success", todo });
 });
 
-app.put("/todo/complete/:id", async (req, res) => {
+app.get("/todo/complete/:id", async (req, res) => {
   const todo = await Todo.findById(req.params.id);
   todo.completeFlag = !todo.completeFlag;
   todo.save();
   res.json({ msg: "Success", todo });
+  //res.json(todo);
 });
 
 app.listen(3001, () => console.log("Server Started"));
